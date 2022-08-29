@@ -1,0 +1,23 @@
+/* universal selector */
+*{
+color: rgb(14, 14, 238);
+/* background-image: url("images/img-1.jpg");
+background-size: 100%; */
+}
+/*  */
+body {
+/* background-color: bisque;
+opacity: 0.1; */
+
+}
+
+#section1{
+    background-color: mediumslateblue;
+    border-style: dashed;
+    border-top-style: groove;
+    border-top-color: green;
+    margin: 20px; 
+    padding: 25px;
+    /* Margin applies space outside the content borders*/
+    /* Padding applies space inside the content */
+}

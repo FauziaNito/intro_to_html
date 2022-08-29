@@ -1,0 +1,360 @@
+
+LENOVO@HP MINGW64 ~
+$ cd Documents
+
+LENOVO@HP MINGW64 ~/Documents
+$ cd GitHub
+
+LENOVO@HP MINGW64 ~/Documents/GitHub
+$ cd Projects
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects
+$ mkdir Moon
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects
+$ cd Moon
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon
+$ git init
+Initialized empty Git repository in C:/Users/LENOVO/Documents/GitHub/Projects/Moon/.git/
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ ls
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ ls -a
+./  ../  .git/
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ open .git
+bash: open: command not found
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ rm -rf .git
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon
+$ git init
+Initialized empty Git repository in C:/Users/LENOVO/Documents/GitHub/Projects/Moon/.git/
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ echo hello > file1.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ echo hello > file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git add .
+warning: in the working copy of 'file1.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'file2.txt', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+        new file:   file2.txt
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git rm
+fatal: No pathspec was given. Which files should I remove?
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git rm file1.txt file2.txt
+error: the following files have changes staged in the index:
+    file1.txt
+    file2.txt
+(use --cached to keep the file, or -f to force removal)
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+        new file:   file2.txt
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ echo world >> file1.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+        new file:   file2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git add file1.txt
+warning: in the working copy of 'file1.txt', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+        new file:   file2.txt
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git commit
+[master (root-commit) 84109ab] Initial commit.
+ 2 files changed, 3 insertions(+)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ echo test >> file1.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git add file1.txt
+warning: in the working copy of 'file1.txt', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.txt
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ rm file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    file2.txt
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git ls-files
+file1.txt
+file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git add file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git ls-files
+file1.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.txt
+        deleted:    file2.txt
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git commit -m "Edited file1 and Removed file2"
+[master a6eee9d] Edited file1 and Removed file2
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ delete mode 100644 file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git rm file2.txt *.txt
+fatal: pathspec 'file2.txt' did not match any files
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git log
+commit a6eee9d5f2ab52295c081acce2b2828d577c3590 (HEAD -> master)
+Author: Fauzia Nakacwa <fauzianaava@gmail.com>
+Date:   Fri Aug 26 19:09:05 2022 +0300
+
+    Edited file1 and Removed file2
+
+commit 84109abad45546d6c14fe1e406aa5e2f9711e7d7
+Author: Fauzia Nakacwa <fauzianaava@gmail.com>
+Date:   Fri Aug 26 18:44:23 2022 +0300
+
+    Initial commit.
+
+    This is our first commit.
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git ls-files
+file1.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ echo hello > file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git add file2.txt
+warning: in the working copy of 'file2.txt', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file2.txt
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git restore --staged file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git add file2.txt
+warning: in the working copy of 'file2.txt', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file2.txt
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git commit -m "Created file2.txt"
+[master efed3b5] Created file2.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git ls-files
+file1.txt
+file2.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ mv file1.txt main.js
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    file1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        main.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git add file1.txt
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git add main.js
+warning: in the working copy of 'main.js', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    file1.txt -> main.js
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git mv main.js file1.js
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    file1.txt -> file1.js
+
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ git commit -m "Refactor code"
+[master 2f9d991] Refactor code
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename file1.txt => file1.js (100%)
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ mkdir logs
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$ echo hello > logs/dev.log
+
+LENOVO@HP MINGW64 ~/Documents/GitHub/Projects/Moon (master)
+$
